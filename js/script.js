@@ -4,7 +4,7 @@ project 1 - A Random Quote Generator
 ******************************************/
 
 //Here I created the "quotes" array.
-//Added extras like 'tags', 'year' and 'citation'.
+//Added extra properties like: 'tags', 'year' and 'citation'.
 
 const quotes = [
   {quote: "It seems that our brave new world is becoming less tolerant, spiritual and educated than it ever was when I was young.", source: "Lemmy Kilmister"},
@@ -39,7 +39,7 @@ const printQuote = () => {
       <p class="quote"> ${ranObject['quote']}</p>
       <p class="source"> ${ranObject['source']}`
 
-//Added conditional statements to add extra content to the browser if the array 'quotes' contain any extra properties(ciatation, year, tags)
+//These conditional statements add extra content to the browser if the array 'quotes' contain any extra properties(citation, year, tags)
         if (ranObject['citation']) {
           HTML += `<span class="citation"> ${ranObject['citation']}</span>`;
           }
@@ -52,7 +52,7 @@ const printQuote = () => {
           HTML += `<span class="tags"> <strong>${ranObject['tags']}</strong> </span>`;
           }
       `</p>`
-      
+
 //the function returns the content of the string 'HTML' to the inner HTML of element 'quote-box'
   return document.getElementById('quote-box').innerHTML = HTML;
 }

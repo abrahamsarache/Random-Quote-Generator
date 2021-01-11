@@ -1,13 +1,9 @@
 # Techdegree Project 01
  A Random Quote Generator
 
-
-Starting with the "getRandomQuote function" using Math.random to create a random number within my array's "length". I stored this value into the variable "randomNum".
-
-Then I used bracket notation and my variable "randomNum" to access a random value from my array 'quotes'. I stored that value into a new variable called "randomObject". 
+I am aiming to the Meets Expectations grade.
 
 I added the setInterval method after checking it out on https://www.w3schools.com/jsref/met_win_setinterval.asp, then I realized you had it written on the instructions of the project as well.
-
 
 -There were some changes I did to the styles.css file:
 
