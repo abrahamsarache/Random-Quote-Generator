@@ -3,13 +3,9 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+//Here I created the "quotes" array.
+//Added extras like 'tags', 'year' and 'citation'.
 
-/*** 
- * `quotes` array 
-***/
 const quotes = [
   {quote: "It seems that our brave new world is becoming less tolerant, spiritual and educated than it ever was when I was young.", source: "Lemmy Kilmister"},
   {quote: "If you end up with a boring miserable life because you listened to your mom, your dad, your teacher, your priest, or some guy on television telling you how to do your shit, then you deserve it.", source: "Frank Zappa", year: "1969", tags: "Musician"},
@@ -19,65 +15,50 @@ const quotes = [
   {quote: "Many of life's failures are people who did not realize how close they were to success when they gave up.", source: "Thomas Edison"}
 ];
 
-
-/***
- * `getRandomQuote` function
-***/
-
+//Starting with the 'getRandomQuote' function using Math.random to create a random number within my array's length. I stored this value into the variable 'randomNum'.
 const getRandomQuote = () => {
 
   let randomNum = Math.floor(Math.random() * quotes.length);
-  //console.log(randomNum);
 
+//Then I used bracket notation and my variable 'randomNum' to access a random value from my array 'quotes'. I stored that value into a new variable called 'randomObject'. 
   let randomObject = quotes[randomNum]; 
-  //console.log(randomObject);
+
+//Now the function 'getRandomQuote' returns 'randomObject' when it is called. 
   return randomObject;
 }
  
-
-
-/***
- * `printQuote` function
-***/
-
-
+//I created the 'printQuote' function to print out a random quote to the browser using the random object created in the 'getRandomQuote' function.
 const printQuote = () => {
-  //In the body of the printQuote function, create a variable to store a random quote object from the getRandomQuote() function.
+
+//I stored the value of 'getRandomQuote' inside a new variable 'ranObject'.
   let ranObject = getRandomQuote();
 
+//I created another variable to store an empty string 'HTML' that will be substituted everytime by a newer string with random quotes and properties
   let HTML = '';
     HTML +=`
       <p class="quote"> ${ranObject['quote']}</p>
       <p class="source"> ${ranObject['source']}`
 
-                if (ranObject['citation']) {
-                  HTML += `<span class="citation"> ${ranObject['citation']}</span>`;
-                }
+//Added conditional statements to add extra content to the browser if the array 'quotes' contain any extra properties(ciatation, year, tags)
+        if (ranObject['citation']) {
+          HTML += `<span class="citation"> ${ranObject['citation']}</span>`;
+          }
 
-                if (ranObject['year']) {
-                  HTML += `<span class="year"> ${ranObject['year']} </span>`;
-                }
+        if (ranObject['year']) {
+          HTML += `<span class="year"> ${ranObject['year']} </span>`;
+          }
 
-                if (ranObject['tags']) {
-                  HTML += `<span class="tags"> <strong>${ranObject['tags']}</strong> </span>`;
-                }
-  `</p>`
-
-
+        if (ranObject['tags']) {
+          HTML += `<span class="tags"> <strong>${ranObject['tags']}</strong> </span>`;
+          }
+      `</p>`
+      
+//the function returns the content of the string 'HTML' to the inner HTML of element 'quote-box'
   return document.getElementById('quote-box').innerHTML = HTML;
 }
-  
-setInterval(printQuote, 2000);
 
-/*
-if (setInterval) {
- ;
-}
-*/
-
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
+//I added the method that allows the page to refresh automatically with setInterval using 'printQuote' as its argument and setting the timer to 5 seconds.
+//setInterval method taken from https://www.w3schools.com/jsref/met_win_setinterval.asp
+setInterval(printQuote, 5000);
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
