@@ -21,7 +21,7 @@ const getRandomQuote = () => {
   let randomNum = Math.floor(Math.random() * quotes.length);
 
 //Then I used bracket notation and my variable 'randomNum' to access a random value from my array 'quotes'. I stored that value into a new variable called 'randomObject'. 
-  let randomObject = quotes[randomNum]; 
+  const randomObject = quotes[randomNum]; 
 
 //Now the function 'getRandomQuote' returns 'randomObject' when it is called. 
   return randomObject;
@@ -31,7 +31,7 @@ const getRandomQuote = () => {
 const printQuote = () => {
 
 //I stored the value of 'getRandomQuote' inside a new variable 'ranObject'.
-  let ranObject = getRandomQuote();
+  const ranObject = getRandomQuote();
 
 //I created another variable to store an empty string 'HTML' that will be substituted everytime by a newer string with random quotes and properties
   let HTML = '';
