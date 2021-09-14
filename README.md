@@ -27,21 +27,6 @@ I added the setInterval method after checking it out on https://www.w3schools.co
 
     I tried changing the background color of the site, but I just got a bunch of weird behavior. Even though I didn't figure it out, I would like to know how it is possible. Seems like a cool thing to do.
 
-    Here you can have a look at my code.
-
-    let backgroundColor ='';
-    const randomValue = () => Math.floor(Math.random() * 256);
-
-    function randomBC(colorVal) {
-        const color = `rgb( ${colorVal()}, ${colorVal()}, ${colorVal()} )`;
-        return color;
-    }
-    
-    for (let i=0; i < quotes.length; i++){
-        backgroundColor += `<body style="background-color: ${randomBC(randomValue)}">${i}</body>`;
-        document.querySelector('body').innerHTML = backgroundColor;
-    }
-
-    Somehow I could not find the way to access the 'body' section, I only happen to change 'header' and the 'container' box. :'(
+*Fixed after some months of learning DOM manipulation
 
 Thank you in advance for taking the time to review my project

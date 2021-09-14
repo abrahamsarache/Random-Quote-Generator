@@ -29,7 +29,7 @@ const getRandomQuote = () => {
  
 //I created the 'printQuote' function to print out a random quote to the browser using the random object created in the 'getRandomQuote' function.
 const printQuote = () => {
-
+  changeBackgroundColor()
 //I stored the value of 'getRandomQuote' inside a new variable 'ranObject'.
   const ranObject = getRandomQuote();
 
@@ -57,8 +57,17 @@ const printQuote = () => {
   return document.getElementById('quote-box').innerHTML = HTML;
 }
 
+//Changes the color of the background randomly
+function changeBackgroundColor(){
+  const body = document.querySelector("body");
+  const randomValue1 = Math.floor(Math.random() * 256);
+  const randomValue2 = Math.floor(Math.random() * 256);
+  const randomValue3 = Math.floor(Math.random() * 256);
+  body.style.backgroundColor = `rgb(${randomValue1}, ${randomValue2}, ${randomValue3})`;
+}
+
 //I added the method that allows the page to refresh automatically with setInterval using 'printQuote' as its argument and setting the timer to 5 seconds.
 //setInterval method taken from https://www.w3schools.com/jsref/met_win_setinterval.asp
-setInterval(printQuote, 5000);
+setInterval(printQuote, 3000);
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
